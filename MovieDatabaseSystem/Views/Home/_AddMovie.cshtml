@@ -1,0 +1,84 @@
+﻿@using MovieDatabaseSystem.Common.Models.ViewModels;
+@model MovieHomePageModel
+
+<div id="addMovieModal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content dark-theme-modal">
+            <div class="modal-header">
+                <h2> Add New Movie </h2>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col col-right">
+                        <div class="row">
+                            <label>Title</label>
+                        </div>
+                        <div class="row input-row">
+                            <input id="movieTitle" type="text" class="addmodal-fields" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <label>Category</label>
+                        </div>
+                        <div class="row input-row">
+                            @Html.DropDownList("category-select", Model.CategoryItems.AsEnumerable(), "Select...", new { @class = "select2-category addmodal-fields" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-right">
+                        <div class="row">
+                            <label>Runtime</label>
+                        </div>
+                        <div class="row input-row">
+                            <input id="movieRuntime" class="addmodal-fields"/>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <label>Released Date</label>
+                        </div>
+                        <div class="row input-row">
+                            <input id="movieReleasedDate" class="addmodal-fields" data-select="datepicker"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-right">
+                        <div class="row">
+                            <label>Director</label>
+                        </div>
+                        <div class="row input-row">
+                            <input id="movieDirector" type="text" class="addmodal-fields" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <label>IMDB Rating</label>
+                        </div>
+                        <div class="row input-row">
+                            <input id="movieRating" type="text" class="addmodal-fields" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <label>Description</label>
+                        </div>
+                        <div class="row input-row">
+                            <textarea id="movieDescription" class="addmodal-fields" style="height: 100px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row float-end pt-4">
+                    <button id="cancelAdd" class="cancel-add-btn other-movie-btn">Cancel</button>
+                    <button id="saveAdd" class="save-add-btn float-end add-movie-btn">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Styles.Render("~/bundles/Select2Style")
+@Scripts.Render("~/bundles/Select2Scripts")

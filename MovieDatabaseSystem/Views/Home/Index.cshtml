@@ -1,0 +1,23 @@
+﻿@using MovieDatabaseSystem.Common.Models.ViewModels;
+@model MovieHomePageModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@Styles.Render("~/bundles/DataTableStyle")
+@Styles.Render("~/bundles/IndexPageStyle")
+
+<div class="row">
+    <div class="col-10"><h2>My Movies</h2></div>
+    <div class="col-2"><button id="AddMovieBtn" class="add-movie-btn">Add New Movie</button></div>
+</div>
+<br />
+<div class="movieGrid-div">
+    @Html.Partial("_MovieGrid")
+</div>
+
+@Html.Partial("_AddMovie", Model)
+
+
+@Scripts.Render("~/bundles/IndexPageScripts")
+@Scripts.Render("~/bundles/DataTableScript")
